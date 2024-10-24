@@ -1,3 +1,6 @@
 [workspace]
 resolver = "2"
 members = ["crates/canvaspads"]
+
+[workspace.dependencies]
+raw-window-handle = "0.6.2"
