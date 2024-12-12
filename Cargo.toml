@@ -1,3 +1,7 @@
 [workspace]
 resolver = "2"
-members = ["crates/canvaspads"]
+members = ["crates/canvaspads", "crates/canvaspads-web"]
+
+[workspace.dependencies]
+wasm-bindgen = "0.2"
+raw-window-handle = "0.6.2"
