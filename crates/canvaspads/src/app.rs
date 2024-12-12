@@ -63,6 +63,7 @@ impl<'a> Surface<'a> {
     pub fn from_rwh() -> Self {
         unimplemented!()
     }
+
     pub fn from_canvas(options: CanvasElementOptions) -> Self {
         let elm = CanvasElement::from_options(options);
         Surface::CanvasElement(elm)
