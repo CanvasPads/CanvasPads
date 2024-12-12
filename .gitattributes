@@ -1,0 +1,2 @@
+# GitHub linguist will ignore auto-generated files
+web/src/wasm/* linguist-vendored
