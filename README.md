@@ -16,7 +16,7 @@ $ cargo install -f wasm-bindgen-cli
 
 ### Install binaryen
 
-- A precompiled binaries are available on
+- Precompiled binaries are available on
   [Github](https://github.com/WebAssembly/binaryen/releases).
 
 ### Build `canvaspads-web`
