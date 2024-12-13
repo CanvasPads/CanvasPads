@@ -1,7 +1,7 @@
 let wasm;
 
 function addToExternrefTable0(obj) {
-    const idx = wasm.__externref_table_alloc();
+    const idx = wasm.__wbindgen_export_1();
     wasm.__wbindgen_export_2.set(idx, obj);
     return idx;
 }
@@ -11,7 +11,7 @@ function handleError(f, args) {
         return f.apply(this, args);
     } catch (e) {
         const idx = addToExternrefTable0(e);
-        wasm.__wbindgen_exn_store(idx);
+        wasm.__wbindgen_export_0(idx);
     }
 }
 
@@ -267,7 +267,7 @@ function __wbg_get_imports() {
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
         const ret = debugString(arg1);
-        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_export_3, wasm.__wbindgen_export_4);
         const len1 = WASM_VECTOR_LEN;
         getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
         getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
