@@ -3,5 +3,6 @@ resolver = "2"
 members = ["crates/canvaspads", "crates/canvaspads-web"]
 
 [workspace.dependencies]
-wasm-bindgen = "0.2"
+wasm-bindgen = "0.2.99"
+wasm-bindgen-futures = "0.4.49"
 raw-window-handle = "0.6.2"

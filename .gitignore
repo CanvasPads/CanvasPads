@@ -1,3 +1,4 @@
 target
 debug
 node_modules
+web/src/wasm
