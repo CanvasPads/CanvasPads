@@ -1,10 +1,14 @@
-use canvaspads::app::{Application, CanvasElementOptions, Surface};
+use canvaspads::app::{CanvasElementOptions, Instance, Surface};
 use wasm_bindgen::prelude::*;
 
 static CPS_CANVAS_ID: &str = "cps_root";
 
 #[wasm_bindgen]
-pub fn start() {
+extern "C" {
+    fn alert(s: &str);
+}
+
+pub async fn run() {
     let wrapper = web_sys::window()
         .unwrap()
         .document()
@@ -28,5 +32,12 @@ pub fn start() {
         padding_right: 0,
     };
     let surface = Surface::from_canvas(options);
-    Application::new(surface);
+    if let Err(..) = Instance::new(surface).await {
+        alert("An error occured.");
+    };
+}
+
+#[wasm_bindgen]
+pub fn start() {
+    wasm_bindgen_futures::spawn_local(run());
 }
