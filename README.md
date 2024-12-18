@@ -6,13 +6,18 @@
 An open source drawing and painting app for making arts.
 </p>
 
-## Building
+## Building CanvasPads web editor
 
 ### Install wasm-bindgen-cli
 
 ```sh
 $ cargo install -f wasm-bindgen-cli
 ```
+
+### Install binaryen
+
+- Precompiled binaries are available on
+  [Github](https://github.com/WebAssembly/binaryen/releases).
 
 ### Build `canvaspads-web`
 

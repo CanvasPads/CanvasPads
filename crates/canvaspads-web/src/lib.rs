@@ -1,5 +1,4 @@
 use std::{cell::RefCell, rc::Rc};
-
 use canvaspads::app::{CanvasElementOptions, Instance, Surface};
 use wasm_bindgen::prelude::*;
 use web_sys::HtmlCanvasElement;
