@@ -1,5 +1,7 @@
+use std::{cell::RefCell, rc::Rc};
 use canvaspads::app::{CanvasElementOptions, Instance, Surface};
 use wasm_bindgen::prelude::*;
+use web_sys::HtmlCanvasElement;
 
 static CPS_CANVAS_ID: &str = "cps_root";
 
@@ -21,9 +23,9 @@ pub async fn run() {
         .unwrap()
         .create_element("canvas")
         .unwrap();
-    let _ = wrapper.append_child(&elm);
+    let elm: Rc<RefCell<HtmlCanvasElement>> = Rc::new(RefCell::new(elm.dyn_into().unwrap()));
     let options = CanvasElementOptions {
-        elm: elm.dyn_into().unwrap(),
+        elm: elm.borrow().clone(),
         width: 640,
         height: 480,
         padding_top: 0,
@@ -32,9 +34,23 @@ pub async fn run() {
         padding_right: 0,
     };
     let surface = Surface::from_canvas(options);
-    if let Err(..) = Instance::new(surface).await {
-        alert("An error occured.");
+    let instance = match Instance::new(surface).await {
+        Ok(i) => i,
+        Err(..) => {
+            alert("An error occured.");
+            return;
+        }
     };
+
+    let closure = Closure::wrap(Box::new(|e: web_sys::TouchEvent| {
+        //
+    }) as Box<dyn FnMut(_)>);
+    elm.borrow()
+        .add_event_listener_with_callback("click", &closure.as_ref().unchecked_ref())
+        .unwrap();
+    closure.forget();
+
+    let _ = wrapper.append_child(&elm.borrow());
 }
 
 #[wasm_bindgen]

@@ -99,7 +99,11 @@ impl<'a> Instance<'a> {
         Ok(Instance { driver })
     }
 
-    pub async fn run() -> InstanceResult<()> {
+    fn render(&self) {}
+
+    pub fn input_touches(&self, x: i32, y: i32) {}
+
+    pub async fn run(&self) -> InstanceResult<()> {
         Ok(())
     }
 }

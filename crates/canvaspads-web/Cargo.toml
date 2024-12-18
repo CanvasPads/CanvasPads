@@ -16,6 +16,8 @@ web-sys = { version = "0.3.76", features = [
   "Document",
   "Element",
   "HtmlCanvasElement",
+  "TouchEvent",
+  "TouchList",
 ] }
 
 [profile.release]
