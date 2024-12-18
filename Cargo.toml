@@ -2,6 +2,9 @@
 resolver = "2"
 members = ["crates/canvaspads", "crates/canvaspads-web"]
 
+[workspace.package]
+version = "0.1.0"
+
 [workspace.dependencies]
 wasm-bindgen = "0.2.99"
 wasm-bindgen-futures = "0.4.49"
