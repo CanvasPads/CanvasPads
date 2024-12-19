@@ -8,7 +8,7 @@ An open source drawing and painting app for making arts.
 
 ## Building CanvasPads web editor
 
-### Install wasm-bindgen-cli
+### Install `wasm-bindgen-cli`
 
 ```sh
 $ cargo install -f wasm-bindgen-cli
@@ -23,5 +23,13 @@ $ cargo install -f wasm-bindgen-cli
 
 ```sh
 $ cd ./crates/canvaspads-web
-$ ./build.sh
+$ ./build+optimize.sh
+```
+
+### Build web editor
+
+```sh
+$ cd ./web
+$ npm i
+$ npm run build
 ```
